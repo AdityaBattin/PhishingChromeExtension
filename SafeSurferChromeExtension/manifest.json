@@ -1,0 +1,30 @@
+{
+  "name": "SafeSurfer",
+  "version": "1.0.01",
+  "description": "A phishing detector Chrome Extension",
+  "permissions": [
+    "activeTab",
+    "declarativeContent",
+    "storage",
+    "webNavigation"
+  ],
+  "background": {
+    "service_worker": "js/bg-loader.js"
+  },
+  "action": {
+    "default_popup": "plugin_ui.html",
+    "default_icon": {
+      "128": "./Assets/safe.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["js/features.js"]
+    }
+  ],
+  "icons": {
+    "128": "./Assets/safe.png"
+  },
+  "manifest_version": 3
+}
